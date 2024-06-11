@@ -18,4 +18,19 @@
       text-decoration: none;
       color: $color-white;
     }
+
+    &--form{
+      padding: 1rem  3rem;
+      
+    }
+
+    &--next{
+      background-color: #212529;
+      color: $color-white;
+    }
+
+    &--previous{
+      background-color: #212529 $color-white;
+      color: #212529 ;
+    }
 }

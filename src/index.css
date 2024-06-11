@@ -48,6 +48,16 @@ ORDER: Base + typography > general layout + grid > page layout > components
         .nav-brand__img {
           width: 3.5rem; } }
 
+.company-Name {
+  font-size: 4rem;
+  text-transform: uppercase;
+  background-image: linear-gradient(to right, #495057, #adb5bd);
+  -webkit-background-clip: text;
+  color: transparent; }
+  @media only screen and (max-width: 36em) {
+    .company-Name {
+      font-size: 3rem; } }
+
 .btn {
   padding: 1rem 2rem;
   border-radius: 1rem;
@@ -61,6 +71,14 @@ ORDER: Base + typography > general layout + grid > page layout > components
     background-color: #212529;
     text-decoration: none;
     color: #fff; }
+  .btn--form {
+    padding: 1rem  3rem; }
+  .btn--next {
+    background-color: #212529;
+    color: #fff; }
+  .btn--previous {
+    background-color: #212529 #fff;
+    color: #212529; }
 
 .welcome {
   padding: 5rem;
@@ -96,12 +114,116 @@ ORDER: Base + typography > general layout + grid > page layout > components
       .welcome p {
         font-size: 1.2rem; } }
 
-.company-Name {
+.personalDetails {
+  padding: 3rem; }
+
+.form {
+  touch-action: manipulation;
+  padding: 5rem; }
+  .form__group:not(:last-child) {
+    margin-bottom: -1rem; }
+  .form__input {
+    font-size: 1.8rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: .5rem;
+    background-color: rgba(73, 80, 87, 0.1);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 95%;
+    display: block;
+    transition: all .3s;
+    margin-top: 1rem;
+    margin-bottom: 3rem; }
+    .form__input:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+      border-bottom: 3px solid #ced4da; }
+    .form__input:focus:invalid {
+      border-bottom: 3px solid #ced4da; }
+    .form__input::-webkit-input-placeholder {
+      color: #ced4da; }
+  .form__label {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: .5rem;
+    display: block;
+    transition: all .3s;
+    color: #000; }
+  .form__input:placeholder-shown + .form__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-2rem); }
+  .form__radio-group {
+    width: 10%;
+    display: inline-block;
+    margin-top: 2rem; }
+    @media only screen and (max-width: 36em) {
+      .form__radio-group {
+        width: 100%; } }
+    @media only screen and (min-width: 48em) and (max-width: 62em) {
+      .form__radio-group {
+        width: 100%;
+        margin-bottom: 2rem; } }
+  .form__radio-input {
+    display: none; }
+  .form__radio-label {
+    font-size: 2rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4.5rem; }
+  .form__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid #ced4da;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -.4rem; }
+    .form__radio-button::after {
+      content: "";
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ced4da;
+      opacity: 0;
+      transition: opacity .2s; }
+  .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+    opacity: 1; }
+  .form__nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: 1rem 3rem; }
+    @media only screen and (max-width: 36em) {
+      .form__nav {
+        justify-content: space-between;
+        padding: 1rem 2rem; } }
+
+.progress-bar {
+  background-color: #f0f0f0;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden; }
+
+.progress-bar-fill {
+  background-color: #0074d9;
+  height: 100%;
+  transition: width 0.3s ease-in-out; }
+
+h2 {
   font-size: 4rem;
-  text-transform: uppercase;
-  background-image: linear-gradient(to right, #495057, #adb5bd);
-  -webkit-background-clip: text;
-  color: transparent; }
+  color: #868e96;
+  padding: 2rem;
+  text-align: center; }
   @media only screen and (max-width: 36em) {
-    .company-Name {
-      font-size: 3rem; } }
+    h2 {
+      font-size: 2.2rem; } }
