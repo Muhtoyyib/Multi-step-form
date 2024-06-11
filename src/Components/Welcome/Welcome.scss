@@ -1,0 +1,45 @@
+.welcome{
+    padding: 5rem;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 7rem;
+    }
+
+    h2{
+        font-size: 4rem;
+        color: $color-grey-2;
+        padding: 2rem;
+
+        @include respond(small-device){
+            font-size: 2.2rem;
+        }
+    }
+
+    &__company-Name{
+        font-size: 4rem;
+        text-transform: uppercase;
+        background-image: linear-gradient(to right, #e8590c, #fd7e14);
+        -webkit-background-clip: text;
+        color: transparent;
+
+        @include respond(small-device){
+            font-size: 3rem;
+        }
+    }
+
+    p{
+        font-size: 2rem;
+        color: $color-grey-2;
+        padding-bottom: 3rem;
+
+        @include respond(small-device){
+            font-size: 1.2rem;
+        }
+    }
+}

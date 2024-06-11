@@ -47,21 +47,61 @@ ORDER: Base + typography > general layout + grid > page layout > components
       @media only screen and (max-width: 36em) {
         .nav-brand__img {
           width: 3.5rem; } }
-    .nav-brand__h1 {
-      font-size: 4rem;
-      text-transform: uppercase;
-      background-image: linear-gradient(to right, #495057, #adb5bd);
-      -webkit-background-clip: text;
-      color: transparent; }
-      @media only screen and (max-width: 36em) {
-        .nav-brand__h1 {
-          font-size: 3rem; } }
-  .nav-toggle {
-    padding: 1rem 2rem;
-    border-radius: 1rem;
-    outline: none;
-    border: none;
-    font-size: 1.6rem; }
-    .nav-toggle:hover {
-      background-color: #495057;
-      color: #fff; }
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  outline: none;
+  border: none;
+  font-size: 1.6rem; }
+  .btn--nav:hover {
+    background-color: #495057;
+    color: #fff; }
+  .btn--welcome {
+    background-color: #212529;
+    text-decoration: none;
+    color: #fff; }
+
+.welcome {
+  padding: 5rem;
+  width: 70%;
+  margin: auto;
+  text-align: center; }
+  .welcome img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 7rem; }
+  .welcome h2 {
+    font-size: 4rem;
+    color: #868e96;
+    padding: 2rem; }
+    @media only screen and (max-width: 36em) {
+      .welcome h2 {
+        font-size: 2.2rem; } }
+  .welcome__company-Name {
+    font-size: 4rem;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right, #e8590c, #fd7e14);
+    -webkit-background-clip: text;
+    color: transparent; }
+    @media only screen and (max-width: 36em) {
+      .welcome__company-Name {
+        font-size: 3rem; } }
+  .welcome p {
+    font-size: 2rem;
+    color: #868e96;
+    padding-bottom: 3rem; }
+    @media only screen and (max-width: 36em) {
+      .welcome p {
+        font-size: 1.2rem; } }
+
+.company-Name {
+  font-size: 4rem;
+  text-transform: uppercase;
+  background-image: linear-gradient(to right, #495057, #adb5bd);
+  -webkit-background-clip: text;
+  color: transparent; }
+  @media only screen and (max-width: 36em) {
+    .company-Name {
+      font-size: 3rem; } }
