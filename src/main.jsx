@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import App from './Routes/Home/App.jsx'
 import Welcome from './Components/Welcome/Welcome.jsx'
+import Form from './Routes/Form/Form.jsx'
 
 
 import './index.css'
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Welcome />
+          },
+          {
+            path: "/form",
+            element: <Form />
           }
         ]
       }

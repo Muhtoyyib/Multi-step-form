@@ -10,7 +10,7 @@ export default function Welcome(){
                 <h2>Welcome to <span className="welcome__company-Name">msme</span> Employment Scheme</h2>
                 <p>Our aim is to provide jobs for <span className="target">10,000</span> youths all over Nigeria</p>
 
-                <Button type='a' className="btn btn--welcome" to={`#`}>
+                <Button type='a' className="btn btn--welcome" to={`form`}>
                   Get Employment
                 </Button>
             </div>
