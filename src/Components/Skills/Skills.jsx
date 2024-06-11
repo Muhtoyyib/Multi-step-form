@@ -4,6 +4,7 @@ import Input from "../Input/Input"
 export default function Skills({handleChange}){
     return(
         <>
+        <h3>Skills and Qualifications</h3>
         <div className="personalDetails">
             <label className="form__label">
             Skills

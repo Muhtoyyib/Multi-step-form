@@ -5,24 +5,30 @@ import RadioInput from "../Input/radio-input"
 export default function JobPreference({handleChange}){
     return(
         <>
+
+        <h3>Job preference</h3>
         <div className="personalDetails">
             <Input id='firstname' type='text' placeholder='Desired Hob role' name='job-role'  onChange={handleChange}>
             Desired Job role
             </Input>
 
-            <label className="form__label" htmlFor='job-type'>Job Type</label>
+            <div className="form__group">
 
-            <RadioInput id={`remote`} name={`job-type`}>
-                Remote
-            </RadioInput>
-            
-            <RadioInput id={`on-site`} name={`job-type`}>
-                On-site
-            </RadioInput>
+                <label className="form__label" htmlFor='job-type'>Job Type</label>
 
-            <RadioInput id={`hybrid`} name={`job-type`}>
-        Hybrid
-        </RadioInput>
+                <RadioInput id={`remote`} name={`job-type`}>
+                    Remote
+                </RadioInput>
+                
+                <RadioInput id={`on-site`} name={`job-type`}>
+                    On-site
+                </RadioInput>
+
+                <RadioInput id={`hybrid`} name={`job-type`}>
+                Hybrid
+                </RadioInput>
+            </div><br/><br/>
+
 
             
             <Input id='number' type='number' placeholder='Salary Expectation ($)' name='salary' onChange={handleChange}>

@@ -5,6 +5,8 @@ import PersonalDetails from '../../Components/Personal-Details/Personal-Details'
 import EmploymentDetails from '../../Components/Employment-Details/Employment-Details';
 import Skills from '../../Components/Skills/Skills';
 import JobPreference from '../../Components/Job-preferences/Job-preference';
+import FormNav from '../../Components/Form-Nav/Form-Nav';
+import Checkbox from '../../Components/Input/checkbox';
 
 export default function Form () {
   const [step, setStep] = useState(1);
@@ -16,8 +18,14 @@ export default function Form () {
   });
   const totalSteps = 5;
   const currentStep = step;
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
 
   const progressPercentage = (currentStep / totalSteps) * 100;
+
 
   const handleNext = () => {
     setStep(step + 1);
@@ -42,13 +50,9 @@ export default function Form () {
     <div className='form'>
       <form onSubmit={handleSubmit}>
         <h2> <span className="welcome__company-Name">msme</span> Employment Scheme</h2>
-        <div className="progress-bar">
-            <div
-                className="progress-bar-fill"
-                style={{ width: `${progressPercentage}%` }}
-            >
-            </div>
-        </div>
+
+        <FormNav page={progressPercentage} onPageNumberClick={handleNext} />
+
         {step === 1 && (
          <PersonalDetails handleChange={handleChange} />
         )}
@@ -66,18 +70,24 @@ export default function Form () {
           )}
 
           {step === 5 && (
+            <>
+            <h3>Additional Information</h3>
             <div>
             <label className="form__label">
             Additional Information
             </label>
-            <textarea
-            rows="4"
-            cols="50"
-            placeholder="Enter your skills"
-            name="additional information"
-            onChange={handleChange}
-            ></textarea>
+
+            <textarea rows="4" cols="50" placeholder="Enter your skills" name="additional information" onChange={handleChange}></textarea>
             </div>
+
+            <Checkbox
+            label="I agree to the terms and conditions"
+            checked={isChecked}
+            onChange={handleCheckboxChange}
+            id={`term-&-condition`}
+            />
+            </>
+           
           )}
 
 

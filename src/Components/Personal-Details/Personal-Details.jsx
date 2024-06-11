@@ -5,6 +5,7 @@ import RadioInput from "../Input/radio-input"
 export default function PersonalDetails({handleChange}){
     return(
         <>
+        <h3>Personal Details</h3>
         <div className="personalDetails">
             <Input id='firstname' type='text' placeholder='First Name' name='firstname'  onChange={handleChange}>
             First Name
