@@ -1,3 +1,6 @@
+import { Outlet } from 'react-router-dom'
+import Nav from '../../Components/Nav/Nav'
+
 import './App.scss'
 
 function App() {
@@ -5,7 +8,8 @@ function App() {
 
   return (
     <>
-     <h1>letnpm runs go</h1>
+     <Nav />
+     <Outlet />
     </>
   )
 }

@@ -1,0 +1,48 @@
+.nav{
+    @include flexContainer(2rem);
+    justify-content: space-between;
+    padding: 2rem;
+    border-bottom: .02rem solid rgba($color-grey-2, .8);
+
+    &-brand{
+        @include flexContainer(2rem);
+
+        @include respond(small-device){
+            @include flexContainer(1rem);
+        }
+        
+        &__img{
+            width: 4.5rem;
+            height: auto;
+
+            @include respond(small-device){
+                width: 3.5rem;
+            }
+        }
+
+        &__h1{
+            font-size: 4rem;
+            text-transform: uppercase;
+            background-image: linear-gradient(to right, #495057, #adb5bd);
+            -webkit-background-clip: text;
+            color: transparent;
+
+            @include respond(small-device){
+                font-size: 3rem;
+            }
+        }
+    }
+
+    &-toggle{
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        outline: none;
+        border: none;
+        font-size: 1.6rem;
+
+        &:hover{
+            background-color: $color-grey-3;
+            color: $color-white;
+        }
+    }
+}
