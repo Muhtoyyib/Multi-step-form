@@ -1,0 +1,65 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin flexContainer($gap){
+    display: flex;
+    gap: $gap;
+    flex-wrap: wrap;
+}
+
+@mixin flexibleBox($basis){
+    flex-basis: $basis;
+    flex-grow: 1;
+}
+
+
+// MEDIA QUERY MANAGER
+/*
+
+$breakpoint arguement choices:
+- small-device
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == small-device{
+        @media only screen and (max-width: 36em) { @content };  // 576
+    }
+    @if $breakpoint == phone {
+        @media only screen and (min-width: 36em ) and (max-width: 48em) { @content };    //768
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (min-width: 48em) and (max-width: 62em) { @content };   // 992
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (min-width: 62em ) and (max-width: 75em){ @content };    // 1200
+    }
+
+    @if $breakpoint == nextHub-max {
+        @media only screen and (min-width: 80em ) and (max-width: 80em){ @content }; // 1280
+    }
+
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 75em) { @content }; // 1280 >
+    }
+}
+

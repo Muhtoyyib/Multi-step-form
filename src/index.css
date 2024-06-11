@@ -1,0 +1,29 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+  font-style: normal;
+  font-style: 100; }
+
+/*
+
+$breakpoint arguement choices:
+- small-device
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+h1 {
+  color: red; }
