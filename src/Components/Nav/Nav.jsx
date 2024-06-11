@@ -1,3 +1,5 @@
+import Button from '../Button/Button'
+
 import Logo from '../../assets/Logo.png'
 
 export default function Nav(){
@@ -6,14 +8,14 @@ export default function Nav(){
             <nav className="nav">
                 <div className="nav-brand">
                     <img className='nav-brand__img' src={Logo} alt="logo" />
-                    <h1 className='nav-brand__h1'>
+                    <h1 className='company-Name'>
                      msme
                     </h1>
                 </div>
 
-                <button className="nav-toggle">
-                   Dark Mode
-                </button>
+                <Button type='b' className="btn btn--nav">
+                 Dark Mode
+                </Button>
             </nav>
         </>
     )

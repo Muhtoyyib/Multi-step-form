@@ -1,0 +1,11 @@
+.company-Name{
+    font-size: 4rem;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right, #495057, #adb5bd);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    @include respond(small-device){
+        font-size: 3rem;
+    }
+}
