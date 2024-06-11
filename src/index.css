@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -117,9 +118,82 @@ ORDER: Base + typography > general layout + grid > page layout > components
 .personalDetails {
   padding: 3rem; }
 
+.indexedStep {
+  color: #bebebe;
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
+  background-color: white;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cecece;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; }
+
+.indexedStep.accomplished {
+  background-color: #d9480f;
+  color: white;
+  border-style: none; }
+
+.RSPBprogressBar {
+  height: 2px;
+  width: 30%;
+  line-height: 1;
+  border-radius: 10px;
+  position: relative;
+  background-color: #cfcfcf;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 0;
+  margin: 20px auto; }
+
+.RSPBprogressBar .RSPBstep {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  position: absolute;
+  transform: translateX(-50%);
+  transition-property: all;
+  transition-timing-function: ease; }
+
+.RSPBprogressBar .RSPBprogressBarText {
+  color: white;
+  font-size: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.RSPBprogressBar .RSPBprogression {
+  position: absolute;
+  transition: width 0.3s ease;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 10px;
+  background: #d9480f;
+  z-index: -1; }
+
+@media screen and (max-width: 480px) {
+  .indexedStep {
+    width: 15px;
+    height: 15px;
+    font-size: 6px; } }
+
+h3 {
+  text-align: center;
+  padding: 2rem;
+  font-size: 3rem;
+  color: #212529; }
+
 .form {
   touch-action: manipulation;
-  padding: 5rem; }
+  padding: 2rem 5rem; }
   .form__group:not(:last-child) {
     margin-bottom: -1rem; }
   .form__input {
@@ -207,17 +281,6 @@ ORDER: Base + typography > general layout + grid > page layout > components
       .form__nav {
         justify-content: space-between;
         padding: 1rem 2rem; } }
-
-.progress-bar {
-  background-color: #f0f0f0;
-  height: 10px;
-  border-radius: 5px;
-  overflow: hidden; }
-
-.progress-bar-fill {
-  background-color: #0074d9;
-  height: 100%;
-  transition: width 0.3s ease-in-out; }
 
 h2 {
   font-size: 4rem;

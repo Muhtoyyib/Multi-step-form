@@ -4,6 +4,7 @@ import Input from "../Input/Input"
 export default function EmploymentDetails({handleChange}){
     return(
         <>
+        <h3>Employment Details</h3>
         <div className="personalDetails">
             <Input id='firstname' type='text' placeholder='First Name' name='firstname'  onChange={handleChange}>
             Company Name
