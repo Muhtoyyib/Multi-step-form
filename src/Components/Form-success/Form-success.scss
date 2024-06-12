@@ -1,0 +1,12 @@
+.success{
+    font-size: 3rem;
+    text-align: center;
+    @include absCenter;
+    background-image: linear-gradient(to right, #e8590c, #fd7e14);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    @include respond(small-device){
+        font-size: 2rem;
+    }
+}
