@@ -197,6 +197,9 @@ h3 {
   font-size: 1.6rem;
   font-weight: 500; }
 
+.review {
+  padding: 2rem .5rem; }
+
 .form {
   touch-action: manipulation;
   padding: 1rem 30rem; }
@@ -298,6 +301,18 @@ h3 {
     padding: 1rem; }
   .form__checkbox {
     display: flex; }
+  .form__category {
+    padding: 1rem 0;
+    font-size: 2rem; }
+  .form__review {
+    font-size: 2rem;
+    padding: .1rem 0; }
+    @media only screen and (max-width: 36em) {
+      .form__review {
+        font-size: 1.6rem;
+        padding: .1rem 0; } }
+    .form__review__category {
+      color: #e8590c; }
 
 h2 {
   font-size: 4rem;

@@ -1,4 +1,5 @@
 import  { useState } from 'react';
+import { useNavigate} from "react-router-dom";
 
 import Button from '../../Components/Button/Button';
 import PersonalDetails from '../../Components/Personal-Details/Personal-Details';
@@ -7,10 +8,13 @@ import Skills from '../../Components/Skills/Skills';
 import JobPreference from '../../Components/Job-preferences/Job-preference';
 import FormNav from '../../Components/Form-Nav/Form-Nav';
 import Checkbox from '../../Components/Input/checkbox';
+import ReviewInfo from '../../Components/Review-info/Review-info';
 
-export default function Form () {
+export default function Form () { 
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({});
+  const [emailError, setEmailError] = useState('');
 
   const [errors, setErrors] = useState({});
   const totalSteps = 5;
@@ -75,8 +79,11 @@ export default function Form () {
   };
 
   const handleCheckboxChange = (e) => {
-    setIsChecked(e.target.checked);
+    const { name, checked } = e.target;
+    setIsChecked(checked);
+    setFormData({ ...formData, [name]: checked });
   };
+  
 
   const handleNext = () => {
     if (validateStep()) {
@@ -99,8 +106,38 @@ export default function Form () {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateStep()) {
-      // Handle form submission
+      e.preventDefault();
+
+      // const myHeaders = new Headers();
+      // myHeaders.append("Content-Type", "application/json");
+
+      // const raw = JSON.stringify({
+      //   formData
+      // });
+
+      // const requestOptions = {
+      //   method: "POST",
+      //   headers: myHeaders,
+      //   body: raw,
+      //   redirect: "follow"
+      // };
+
+      // fetch(`API ENDPOINT`, requestOptions)
+      // .then((response) => response.json())
+      // .then((result) => {
+      //   console.log(result);
+      //   if (result.success) {
+      //     setEmailError(result.message); 
+      //   } else {
+      //     setEmailError(result.message);  
+      //   }
+      // })
+      // .catch((error) => {
+      //   setEmailError("An error occurred: " + error.message); 
+      // });
+
       console.log('Form submitted:', formData);
+      navigate('/form-success');
     }
   };
 
@@ -131,15 +168,13 @@ export default function Form () {
 
         {step === 5 && (
           <>
+          <ReviewInfo formData={formData}/>
 
-          <Checkbox
-          label="I agree to the terms and conditions"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
-          id={`term-&-condition`}
-          className='form__checkbox'
-          />
+
+
           </>
+
+         
           
         )}
 
@@ -168,3 +203,14 @@ export default function Form () {
     </div>
   );
 }
+
+
+// <Checkbox
+// label="My information is correct"
+// checked={formData.termsAndConditions || false} 
+// onChange={handleCheckboxChange}
+// id="term-and-condition"
+// name="termsAndConditions" 
+// className="form__checkbox"
+// />
+// {errors.termsAndConditions && <p className="error">{errors.termsAndConditions}</p>}
