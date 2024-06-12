@@ -191,9 +191,18 @@ h3 {
   font-size: 3rem;
   color: #212529; }
 
+.error {
+  padding: 1rem;
+  color: #e03131;
+  font-size: 1.6rem;
+  font-weight: 500; }
+
 .form {
   touch-action: manipulation;
-  padding: 2rem 5rem; }
+  padding: 1rem 30rem; }
+  @media only screen and (max-width: 36em) {
+    .form {
+      padding: 1rem .5rem; } }
   .form__group:not(:last-child) {
     margin-bottom: -1rem; }
   .form__input {
@@ -205,7 +214,7 @@ h3 {
     background-color: rgba(73, 80, 87, 0.1);
     border: none;
     border-bottom: 3px solid transparent;
-    width: 95%;
+    width: 100%;
     display: block;
     transition: all .3s;
     margin-top: 1rem;
@@ -230,7 +239,7 @@ h3 {
     visibility: hidden;
     transform: translateY(-2rem); }
   .form__radio-group {
-    width: 10%;
+    width: 15%;
     display: inline-block;
     margin-top: 2rem; }
     @media only screen and (max-width: 36em) {
@@ -281,6 +290,14 @@ h3 {
       .form__nav {
         justify-content: space-between;
         padding: 1rem 2rem; } }
+  .form__textarea {
+    width: 100%;
+    margin: 2rem 0;
+    outline: none;
+    border: 0.1rem solid #495057;
+    padding: 1rem; }
+  .form__checkbox {
+    display: flex; }
 
 h2 {
   font-size: 4rem;

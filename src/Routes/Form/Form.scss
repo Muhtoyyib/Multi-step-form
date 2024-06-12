@@ -2,7 +2,12 @@
 
 .form {
     touch-action: manipulation;
-    padding: 2rem 5rem;
+    padding: 1rem 30rem;
+
+    @include respond(small-device){
+        padding: 1rem .5rem;
+    }
+
 
     &__group:not(:last-child) {
         margin-bottom: -1rem;
@@ -17,7 +22,7 @@
         background-color: rgba($color-grey-3, .1);
         border: none;
         border-bottom: 3px solid transparent;
-        width: 95%;
+        width: 100%;
         display: block;
         transition: all .3s;
         margin-top: 1rem;
@@ -56,7 +61,7 @@
     }
 
     &__radio-group {
-        width: 10%;
+        width: 15%;
         display: inline-block;
         margin-top: 2rem;
 
@@ -120,6 +125,18 @@
             justify-content: space-between;
             padding: 1rem 2rem;
         }
+    }
+
+    &__textarea{
+        width: 100%;
+        margin: 2rem 0;
+        outline: none;
+        border: .1rem solid $color-grey-3;
+        padding: 1rem;
+    }
+
+    &__checkbox{
+        display: flex;
     }
 }
 

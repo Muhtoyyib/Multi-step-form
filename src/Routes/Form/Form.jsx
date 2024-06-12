@@ -10,25 +10,79 @@ import Checkbox from '../../Components/Input/checkbox';
 
 export default function Form () {
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    address: '',
-    // Add other form fields here
-  });
+  const [formData, setFormData] = useState({});
+
+  const [errors, setErrors] = useState({});
   const totalSteps = 5;
-  const currentStep = step;
   const [isChecked, setIsChecked] = useState(false);
+  const progressPercentage = (step / totalSteps) * 100;
+  const emailRegex = new RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$');
+
+
+  const validateStep = () => {
+    const newErrors = {};
+
+    // PERSONAL DETAILS ERRORS
+    if (step === 1) {
+      if (!formData.firstname) newErrors.firstname = 'First name is required';
+    
+      if (!formData.lastname)  newErrors.lastname = 'Last name is required';
+
+      if (!formData.email) {
+        newErrors.email = 'Email is required'
+      }else if(!emailRegex.test(formData.email)){
+        newErrors.email = 'Please Enter a Vlaid Email Address'
+        } 
+
+      if (!formData.phone) newErrors.phone = 'Phone number is required';
+
+      if (!formData.gender) newErrors.gender = 'Gender is required';
+    }
+
+    // EMPLOYMENT DETAILS
+    if (step === 2) {
+      if (!formData.companyName) newErrors.companyName = 'Company name is required';
+
+      if (!formData.jobTitle) newErrors.jobTitle = 'Job Title is required';
+
+      if (!formData.startDate) newErrors.startDate = 'Start Date is required';
+
+      if (!formData.endDate) newErrors.endDate = 'End Date is required';
+  
+    }
+
+    // SKILLS
+    if (step === 3) {
+      if (!formData.education) newErrors.education = 'Education is required';
+
+      if (!formData.skills) newErrors.skills = 'Skills is required';
+
+      if (!formData.certifications) newErrors.certifications = 'Certification(s) is required';
+    }
+
+    // JOB PREFERENCE
+    if (step === 4) {
+      if (!formData.desiredRole) newErrors.desiredRole = 'Desired Role is required';
+
+      if (!formData.expectedSalary) newErrors.expectedSalary = ' Expected Salary is required';
+    }
+
+    // 
+    
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
   };
 
-  const progressPercentage = (currentStep / totalSteps) * 100;
-
-
   const handleNext = () => {
-    setStep(step + 1);
+    if (validateStep()) {
+      console.log('Validation');
+      setStep(step + 1);
+    }
   };
 
   const handlePrevious = () => {
@@ -40,10 +94,14 @@ export default function Form () {
     setFormData({ ...formData, [name]: value });
   };
 
+  console.log(formData);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission 
-    console.log('Form submitted:', formData);
+    if (validateStep()) {
+      // Handle form submission
+      console.log('Form submitted:', formData);
+    }
   };
 
   return (
@@ -51,44 +109,39 @@ export default function Form () {
       <form onSubmit={handleSubmit}>
         <h2> <span className="welcome__company-Name">msme</span> Employment Scheme</h2>
 
-        <FormNav page={progressPercentage} onPageNumberClick={handleNext} />
+        <FormNav page={progressPercentage} onPageNumberClick={handleNext}/>
 
         {step === 1 && (
-         <PersonalDetails handleChange={handleChange} />
+      
+          <PersonalDetails handleChange={handleChange} errors={errors} formData={formData} />
+         
         )}
 
         {step === 2 && (
-          <EmploymentDetails />
+          <EmploymentDetails handleChange={handleChange} errors={errors}/>
         )}
 
         {step === 3 && (
-            <Skills />
-          )}
+            <Skills handleChange={handleChange} errors={errors} />
+        )}
 
-          {step === 4 && (
-            <JobPreference />
-          )}
+        {step === 4 && (
+            <JobPreference handleChange={handleChange} errors={errors} />
+        )}
 
-          {step === 5 && (
-            <>
-            <h3>Additional Information</h3>
-            <div>
-            <label className="form__label">
-            Additional Information
-            </label>
+        {step === 5 && (
+          <>
 
-            <textarea rows="4" cols="50" placeholder="Enter your skills" name="additional information" onChange={handleChange}></textarea>
-            </div>
-
-            <Checkbox
-            label="I agree to the terms and conditions"
-            checked={isChecked}
-            onChange={handleCheckboxChange}
-            id={`term-&-condition`}
-            />
-            </>
-           
-          )}
+          <Checkbox
+          label="I agree to the terms and conditions"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+          id={`term-&-condition`}
+          className='form__checkbox'
+          />
+          </>
+          
+        )}
 
 
         <div className="form__nav">
