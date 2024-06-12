@@ -3,8 +3,6 @@ import { ProgressBar, Step } from "react-step-progress-bar";
 // eslint-disable-next-line react/prop-types
 export default function FormNav({ page, onPageNumberClick }){
   var stepPercentage = page;
-  
-  console.log(stepPercentage);
 
   return (
     <ProgressBar percent={stepPercentage}>
