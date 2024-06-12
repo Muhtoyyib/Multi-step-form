@@ -138,6 +138,25 @@
     &__checkbox{
         display: flex;
     }
+
+    &__category{
+        padding: 1rem 0;
+        font-size: 2rem;
+    }
+
+    &__review{
+        font-size: 2rem;
+        padding: .1rem 0;
+
+        @include respond(small-device){
+            font-size: 1.6rem;
+            padding: .1rem 0;
+        }
+
+        &__category{
+            color: #e8590c;
+        }
+    }
 }
 
 // .progress-bar {
