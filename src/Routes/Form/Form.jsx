@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import  { useState, useEffect } from 'react';
 import { useNavigate} from "react-router-dom";
 
 import Button from '../../Components/Button/Button';
@@ -21,6 +21,30 @@ export default function Form () {
   const [isChecked, setIsChecked] = useState(false);
   const progressPercentage = (step / totalSteps) * 100;
   const emailRegex = new RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$');
+  const LOCAL_STORAGE_KEY = 'progress';
+
+
+  useEffect(() => {
+    loadProgress();
+  }, []);
+
+  const saveProgress = () => {
+    const progress = {
+      step,
+      formData,
+    };
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(progress));
+  };
+
+  const loadProgress = () => {
+    const savedProgress = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (savedProgress) {
+      const { step, formData } = JSON.parse(savedProgress);
+      setStep(step);
+      setFormData(formData);
+      setIsChecked(formData.termsAndConditions || false);
+    }
+  };
 
 
   const validateStep = () => {
@@ -71,7 +95,10 @@ export default function Form () {
       if (!formData.expectedSalary) newErrors.expectedSalary = ' Expected Salary is required';
     }
 
-    // 
+      // REVIEW
+      if (step === 5) {
+        if (!isChecked) newErrors.termsAndConditions = 'You must agree to the terms and conditions';
+      }
     
 
     setErrors(newErrors);
@@ -85,15 +112,18 @@ export default function Form () {
   };
   
 
-  const handleNext = () => {
+  const handleNext = (e) => {
+    e.preventDefault();
     if (validateStep()) {
-      console.log('Validation');
       setStep(step + 1);
+      saveProgress();
     }
   };
 
-  const handlePrevious = () => {
+  const handlePrevious = (e) => {
+    e.preventDefault();
     setStep(step - 1);
+    saveProgress();
   };
 
   const handleChange = (e) => {
@@ -108,35 +138,36 @@ export default function Form () {
     if (validateStep()) {
       e.preventDefault();
 
-      // const myHeaders = new Headers();
-      // myHeaders.append("Content-Type", "application/json");
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
 
-      // const raw = JSON.stringify({
-      //   formData
-      // });
+      const raw = JSON.stringify({
+        formData
+      });
 
-      // const requestOptions = {
-      //   method: "POST",
-      //   headers: myHeaders,
-      //   body: raw,
-      //   redirect: "follow"
-      // };
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+      };
 
-      // fetch(`API ENDPOINT`, requestOptions)
-      // .then((response) => response.json())
-      // .then((result) => {
-      //   console.log(result);
-      //   if (result.success) {
-      //     setEmailError(result.message); 
-      //   } else {
-      //     setEmailError(result.message);  
-      //   }
-      // })
-      // .catch((error) => {
-      //   setEmailError("An error occurred: " + error.message); 
-      // });
+      fetch(`API ENDPOINT`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        if (result.success) {
+          setEmailError(result.message); 
+        } else {
+          setEmailError(result.message);  
+        }
+      })
+      .catch((error) => {
+        setEmailError("An error occurred: " + error.message); 
+      });
 
       console.log('Form submitted:', formData);
+      localStorage.removeItem(LOCAL_STORAGE_KEY);
       navigate('/form-success');
     }
   };
@@ -155,40 +186,52 @@ export default function Form () {
         )}
 
         {step === 2 && (
-          <EmploymentDetails handleChange={handleChange} errors={errors}/>
+          <EmploymentDetails handleChange={handleChange} errors={errors} formData={formData}/>
         )}
 
         {step === 3 && (
-            <Skills handleChange={handleChange} errors={errors} />
+            <Skills handleChange={handleChange} errors={errors} formData={formData}/>
         )}
 
         {step === 4 && (
-            <JobPreference handleChange={handleChange} errors={errors} />
+            <JobPreference handleChange={handleChange} errors={errors} formData={formData}/>
         )}
 
         {step === 5 && (
           <>
           <ReviewInfo formData={formData}/>
+          <p> {emailError}</p>
 
+          <div className='form__checkbox'>
 
+          <Checkbox
+              checked={formData.termsAndConditions}
+              onChange={handleCheckboxChange}
+              id="term-and-condition"
+              name="termsAndConditions"
+              className="form__checkbox"
+          />
 
+          <label htmlFor="term-and-condition" className='form__label'>
+          My information is correct and I agree to the terms and conditions.
+          </label>
+          </div>
+
+          {errors.termsAndConditions && <p className="error-terms">{errors.termsAndConditions}</p>}
           </>
-
-         
           
         )}
 
-
         <div className="form__nav">
           {step > 1 && (
-            <Button type='b' className="btn btn--form btn--previous" onClick={handlePrevious}>
+            <button type='button' className="btn btn--form btn--previous" onClick={handlePrevious}>
                  Previous
-            </Button>
+            </button>
           )}
           {step < 5 && (
-            <Button type='b' className="btn btn--form btn--next" onClick={handleNext}>
+            <button type='button' className="btn btn--form btn--next" onClick={handleNext}>
                  Next
-            </Button>
+            </button>
           )}
           {step === 5 && (
             <button
@@ -205,12 +248,3 @@ export default function Form () {
 }
 
 
-// <Checkbox
-// label="My information is correct"
-// checked={formData.termsAndConditions || false} 
-// onChange={handleCheckboxChange}
-// id="term-and-condition"
-// name="termsAndConditions" 
-// className="form__checkbox"
-// />
-// {errors.termsAndConditions && <p className="error">{errors.termsAndConditions}</p>}

@@ -11,7 +11,9 @@ body {
   box-sizing: border-box;
   font-family: "Outfit", sans-serif;
   font-style: normal;
-  font-style: 100; }
+  font-style: 100;
+  background-color: #000;
+  transition: background-color 0.3s, color 0.3s; }
 
 /*
 
@@ -65,9 +67,12 @@ ORDER: Base + typography > general layout + grid > page layout > components
   outline: none;
   border: none;
   font-size: 1.6rem; }
-  .btn--nav:hover {
-    background-color: #495057;
-    color: #fff; }
+  .btn--nav {
+    background-color: #212529;
+    color: #ced4da; }
+    .btn--nav:hover {
+      background-color: #495057;
+      color: #fff; }
   .btn--welcome {
     background-color: #212529;
     text-decoration: none;
@@ -203,16 +208,24 @@ h3 {
   text-align: center;
   padding: 2rem;
   font-size: 3rem;
-  color: #212529; }
+  color: #868e96; }
 
 .error {
   padding: 1rem;
   color: #e03131;
   font-size: 1.6rem;
-  font-weight: 500; }
+  font-weight: 500;
+  float: right; }
 
 .review {
-  padding: 2rem .5rem; }
+  padding: 2rem .5rem;
+  color: #868e96; }
+
+.error-terms {
+  padding: 1rem;
+  color: #e03131;
+  font-size: 1.6rem;
+  font-weight: 500; }
 
 .form {
   touch-action: manipulation;
@@ -225,7 +238,7 @@ h3 {
   .form__input {
     font-size: 1.8rem;
     font-family: inherit;
-    color: inherit;
+    color: #ced4da;
     padding: 1.5rem 2rem;
     border-radius: .5rem;
     background-color: rgba(73, 80, 87, 0.1);
@@ -243,14 +256,14 @@ h3 {
     .form__input:focus:invalid {
       border-bottom: 3px solid #ced4da; }
     .form__input::-webkit-input-placeholder {
-      color: #ced4da; }
+      color: #fff; }
   .form__label {
     font-size: 1.6rem;
     font-weight: 700;
     margin-top: .5rem;
     display: block;
     transition: all .3s;
-    color: #000; }
+    color: #e8590c; }
   .form__input:placeholder-shown + .form__label {
     opacity: 0;
     visibility: hidden;
@@ -272,7 +285,8 @@ h3 {
     font-size: 2rem;
     cursor: pointer;
     position: relative;
-    padding-left: 4.5rem; }
+    padding-left: 4.5rem;
+    color: #e8590c; }
   .form__radio-button {
     height: 3rem;
     width: 3rem;
@@ -312,12 +326,17 @@ h3 {
     margin: 2rem 0;
     outline: none;
     border: 0.1rem solid #495057;
-    padding: 1rem; }
+    padding: 1rem;
+    overflow: hidden; }
   .form__checkbox {
-    display: flex; }
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: baseline; }
   .form__category {
     padding: 1rem 0;
-    font-size: 2rem; }
+    font-size: 2rem;
+    color: #e8590c; }
   .form__review {
     font-size: 2rem;
     padding: .1rem 0; }
@@ -326,7 +345,7 @@ h3 {
         font-size: 1.6rem;
         padding: .1rem 0; } }
     .form__review__category {
-      color: #e8590c; }
+      color: #ced4da; }
 
 h2 {
   font-size: 4rem;

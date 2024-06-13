@@ -13,4 +13,6 @@ body{
     font-family: "Outfit", sans-serif;
     font-style: normal;
     font-style: 100;
+    background-color: #000;
+    transition: background-color 0.3s, color 0.3s;
 }

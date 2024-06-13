@@ -16,7 +16,7 @@
     &__input {
         font-size: 1.8rem;
         font-family: inherit;
-        color: inherit;
+        color: $color-grey-1;
         padding: 1.5rem 2rem;
         border-radius: .5rem;
         background-color: rgba($color-grey-3, .1);
@@ -40,7 +40,7 @@
         }
 
         &::-webkit-input-placeholder {
-            color: $color-grey-1;
+            color: $color-white;
         }
     }
 
@@ -51,7 +51,7 @@
         margin-top: .5rem;
         display: block;
         transition: all .3s;
-        color: $color-black;
+        color: #e8590c;
     }
 
     &__input:placeholder-shown + &__label {
@@ -84,6 +84,7 @@
         cursor: pointer;
         position: relative;
         padding-left: 4.5rem;
+        color: #e8590c;
     }
 
     &__radio-button {
@@ -133,15 +134,18 @@
         outline: none;
         border: .1rem solid $color-grey-3;
         padding: 1rem;
+        overflow: hidden;
     }
 
     &__checkbox{
-        display: flex;
+        @include flexContainer(.5rem);
+        align-items: baseline;
     }
 
     &__category{
         padding: 1rem 0;
         font-size: 2rem;
+        color: #e8590c;
     }
 
     &__review{
@@ -154,7 +158,7 @@
         }
 
         &__category{
-            color: #e8590c;
+            color: #ced4da;
         }
     }
 }

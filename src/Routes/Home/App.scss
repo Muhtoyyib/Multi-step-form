@@ -2,7 +2,7 @@ h3{
     text-align: center;
     padding: 2rem;
     font-size: 3rem;
-    color: #212529;
+    color: #868e96;
 }
 
 .error{
@@ -10,8 +10,18 @@ h3{
     color: #e03131;
     font-size: 1.6rem;
     font-weight: 500;
+    float: right;
 }
 
 .review{
     padding: 2rem .5rem;
+    color: #868e96;
+}
+
+
+.error-terms{
+    padding: 1rem;
+    color: #e03131;
+    font-size: 1.6rem;
+    font-weight: 500;
 }

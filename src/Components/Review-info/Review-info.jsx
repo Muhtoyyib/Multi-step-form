@@ -6,7 +6,7 @@ export default function ReviewInfo({formData}){
 
             <h4 className="form__category"> Personal Details</h4>
             <p className="form__review"> <span className="form__review__category">First Name:</span> {formData.firstname}</p>
-            <p className="form__review"><span className="form__review__category">Last Name:</span>{formData.lastname}</p>
+            <p className="form__review"><span className="form__review__category">Last Name:</span> {formData.lastname}</p>
             <p className="form__review"><span className="form__review__category">Email:</span> {formData.email}</p>
             <p className="form__review"><span className="form__review__category">Phone Number:</span> {formData.phone}</p>
             <p className="form__review"><span className="form__review__category">Gender:</span> {formData.gender}</p>

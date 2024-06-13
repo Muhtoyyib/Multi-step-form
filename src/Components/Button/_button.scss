@@ -6,10 +6,12 @@
   font-size: 1.6rem;
 
     &--nav{
+        background-color: #212529;
+        color: $color-grey-1;
 
         &:hover{
           background-color: $color-grey-3;
-          color: $color-white;
+          color: $color-white ;
       }
     }
 
