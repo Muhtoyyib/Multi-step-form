@@ -213,7 +213,7 @@ export default function Form () {
           />
 
           <label htmlFor="term-and-condition" className='form__label'>
-          My information is correct and I agree to the terms and conditions.
+          My information is correct 
           </label>
           </div>
 
