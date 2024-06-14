@@ -89,7 +89,8 @@ ORDER: Base + typography > general layout + grid > page layout > components
     padding: 1rem  3rem; }
   .btn--next {
     background-color: #212529;
-    color: #fff; }
+    color: #fff;
+    border: 0.05rem solid #495057; }
   .btn--previous {
     background-color: #212529 #fff;
     color: #212529; }
@@ -132,7 +133,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
   padding: 3rem; }
 
 .indexedStep {
-  color: #bebebe;
+  color: #212529;
   width: 30px;
   height: 30px;
   font-size: 12px;
