@@ -13,11 +13,11 @@ function Button(props) {
     }
 
     if(type === "a"){
-        return (
-            <Link to={link} className={className} {...rest}>
-              {children}
-            </Link>
-          );
+      return (
+        <Link to={link} className={className} {...rest}>
+          {children}
+        </Link>
+      );
     }
   }
   

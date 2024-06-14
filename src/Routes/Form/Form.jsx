@@ -1,7 +1,6 @@
 import  { useState, useEffect } from 'react';
 import { useNavigate} from "react-router-dom";
 
-import Button from '../../Components/Button/Button';
 import PersonalDetails from '../../Components/Personal-Details/Personal-Details';
 import EmploymentDetails from '../../Components/Employment-Details/Employment-Details';
 import Skills from '../../Components/Skills/Skills';
@@ -24,6 +23,7 @@ export default function Form () {
   const LOCAL_STORAGE_KEY = 'progress';
 
 
+  // SAVA PROGRESS  TO LOCAL STORAGE
   useEffect(() => {
     loadProgress();
   }, []);
@@ -46,6 +46,7 @@ export default function Form () {
     }
   };
 
+  // FORM  VALIDATION
 
   const validateStep = () => {
     const newErrors = {};
@@ -105,12 +106,16 @@ export default function Form () {
     return Object.keys(newErrors).length === 0;
   };
 
+  // HANDLE CHECKBOX
+
   const handleCheckboxChange = (e) => {
     const { name, checked } = e.target;
     setIsChecked(checked);
     setFormData({ ...formData, [name]: checked });
   };
-  
+
+
+  // FORM NAVIGATION
 
   const handleNext = (e) => {
     e.preventDefault();
@@ -126,13 +131,14 @@ export default function Form () {
     saveProgress();
   };
 
+  // HANDLE INPUT
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  console.log(formData);
-
+  // SUBMIT FORM
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateStep()) {
@@ -166,7 +172,6 @@ export default function Form () {
         setEmailError("An error occurred: " + error.message); 
       });
 
-      console.log('Form submitted:', formData);
       localStorage.removeItem(LOCAL_STORAGE_KEY);
       navigate('/form-success');
     }
@@ -177,7 +182,7 @@ export default function Form () {
       <form onSubmit={handleSubmit}>
         <h2> <span className="welcome__company-Name">msme</span> Employment Scheme</h2>
 
-        <FormNav page={progressPercentage} onPageNumberClick={handleNext}/>
+        <FormNav progressPercentage={progressPercentage} onPageNumberClick={handleNext}/>
 
         {step === 1 && (
       
