@@ -5,7 +5,8 @@
     border-bottom: .02rem solid rgba($color-grey-2, .8);
 
     &-brand{
-        @include flexContainer(2rem);
+        @include flexContainer(1rem);
+        text-decoration: none;
 
         @include respond(small-device){
             @include flexContainer(1rem);

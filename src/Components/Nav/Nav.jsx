@@ -1,17 +1,18 @@
 import Button from '../Button/Button'
 
 import Logo from '../../assets/Logo.png'
+import { NavLink } from 'react-router-dom'
 
 export default function Nav(){
     return(
         <>
             <nav className="nav">
-                <div className="nav-brand">
+                <NavLink to={`/`} className={`nav-brand`}>
                     <img className='nav-brand__img' src={Logo} alt="logo" />
                     <h1 className='company-Name'>
-                     msme
+                    msme
                     </h1>
-                </div>
+                </NavLink>
 
                 <Button type='b' className="btn btn--nav">
                  Dark Mode

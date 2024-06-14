@@ -12,7 +12,7 @@ body {
   font-family: "Outfit", sans-serif;
   font-style: normal;
   font-style: 100;
-  background-color: #000;
+  background-color: #212529;
   transition: background-color 0.3s, color 0.3s; }
 
 /*
@@ -37,8 +37,9 @@ ORDER: Base + typography > general layout + grid > page layout > components
   border-bottom: 0.02rem solid rgba(134, 142, 150, 0.8); }
   .nav-brand {
     display: flex;
-    gap: 2rem;
-    flex-wrap: wrap; }
+    gap: 1rem;
+    flex-wrap: wrap;
+    text-decoration: none; }
     @media only screen and (max-width: 36em) {
       .nav-brand {
         display: flex;
@@ -69,14 +70,21 @@ ORDER: Base + typography > general layout + grid > page layout > components
   font-size: 1.6rem; }
   .btn--nav {
     background-color: #212529;
-    color: #ced4da; }
+    color: #ced4da;
+    border: 0.05rem solid #fff; }
     .btn--nav:hover {
       background-color: #495057;
-      color: #fff; }
+      color: #eee;
+      border: 0.05rem solid #495057; }
   .btn--welcome {
     background-color: #212529;
     text-decoration: none;
-    color: #fff; }
+    color: #fff;
+    border: 0.05rem solid #fff; }
+    .btn--welcome:hover {
+      background-color: #495057;
+      color: #eee;
+      border: 0.05rem solid #495057; }
   .btn--form {
     padding: 1rem  3rem; }
   .btn--next {
